@@ -1,9 +1,38 @@
 {{title}}
 <!--Centriamo la mappa alle nostre coordinate-->
-<google-map [center]="center">  
+<google-map [center]="center">
   <!--Mettiamo un marker alle nostre coordinate-->
-  <map-marker [position]="position" [label]="label" [title]="title">
+
+  <map-marker [position]="position" [label]="label" [title]="title" [options]="markerOptions">
   </map-marker>
+
+  <map-marker [position]="casa" [title]="title" [options]="markerOptions2">
+  </map-marker>
+
+  <map-marker [position]="position2" [title]="title" [options]="markerOptions3">
+  </map-marker>
+
+  <map-marker [position]="positionBV" [title]="title" [options]="markerOptions4">
+  </map-marker>
+
   <map-marker [position]="casa" [label]="lblCasa" [title]="title">
   </map-marker>
+
+  <map-circle [center]="position" [radius]="50" [options]='circleOptions'>
+  </map-circle>
+
+  <map-circle [center]="casa" [radius]="50" [options]='circleOptions'>
+  </map-circle>
+
+  <map-polygon [paths]="vertices">
+  </map-polygon>
+
+  <map-polygon [paths]="vertices1" [options]='rectangleOptions'>
+  </map-polygon>
+  
 </google-map>
+
+<button (click)="onSave('yellow')">Giallo</button>
+<button (click)="onSave('purple')">Viola</button>
+<button (click)="onSave('blue')">Blu</button>
+<button (click)="rectangleOptions('Red')">Rosso</button>
